@@ -1,0 +1,36 @@
+﻿<Window x:Class="RoverApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Rover Application" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+          
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        
+        <DockPanel  Grid.Column="0" LastChildFill="True" Margin="5" >
+            <TextBlock Margin="5" DockPanel.Dock="Top">Please select input instruction file:</TextBlock>
+           
+             <DockPanel LastChildFill="True" HorizontalAlignment="Stretch" DockPanel.Dock="Top" >
+                <Button x:Name="btnBrowse"   DockPanel.Dock="Right"  Margin="5" Command="{Binding Path=GetInstructionsCommand}" >Browse ...</Button>
+                <TextBox x:Name="txtInstructionFile" Margin="5" IsReadOnly="True"  Text="{Binding InstructionFile}" ></TextBox>
+             </DockPanel>
+
+            <Button x:Name="btnRun" DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="5" Command="{Binding Path= RunInstructionsCommand}">Run Instructions</Button>
+
+            <TextBox  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" x:Name="txtInstructions" Margin="5" IsReadOnly="True"  Text="{Binding Instructions}" ></TextBox>
+            
+               
+        </DockPanel>
+        
+        <DockPanel Grid.Column="2" LastChildFill="True" Margin="5">
+            <TextBlock DockPanel.Dock="Top"  Margin="5">Result:</TextBlock>
+            <TextBox  AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" x:Name="txtResults" Margin="5" IsReadOnly="True" Text="{Binding Result}"></TextBox>
+
+        </DockPanel> 
+        
+    </Grid>
+     
+    
+</Window>
